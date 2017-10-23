@@ -1,7 +1,7 @@
 # PostGIS 
 
 
-## Zaklady prace s geodatabazi PostGIS ## 
+## Zaklady prace s geodatabazi ## 
 
 
 0. GIS.lab 
