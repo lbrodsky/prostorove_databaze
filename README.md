@@ -6,16 +6,17 @@
 
 0. GIS.lab 
 
-1. Pripojeni do PostGIS databaze
+1. Pripojeni do PostGIS databaze a vizualizace prostorovych dat
 [GUI / CLI]
 
 2. Vytvarime prostorovou databazi
-[createdb]
-" "
+[CREATEDB]
+
 
 3. Import a export prostorovych dat v PostGIS
-
+[GUI / CLI]
 
 
 Reference: 
+
 
