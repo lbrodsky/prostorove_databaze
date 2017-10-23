@@ -1,7 +1,8 @@
-# PostGIS minimum
-==================================
+# PostGIS 
 
-Zaklady prace s PotGIS
+
+## Zaklady prace s geodatabazi PostGIS ## 
+
 
 0. GIS.lab 
 
