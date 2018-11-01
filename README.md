@@ -23,6 +23,8 @@ $psql mydb
  
 SELECT version();
 
+SELECT potgis_full_version;
+
 \conninfo;
 
 
@@ -36,13 +38,22 @@ ALTER ROLE <user_name> NONSUPERUSER;
 \h -- help
 \q -- odchod z psql
 
+SELECT *
+FROM spatial_ref_sys
+WHERE SRID==554;
+
+
 
 ### 2. Vytvarime prostorovou databazi ### 
 [CREATEDB]
 
+-- createdb
+
 createdb mydb -U jnovak -h server 
 
 psql -d mydb -h server 
+
+-- CREATE TABLE 
 
 CREATE TABLE tbl-mesta 
    (id integer NOT NULL, 
@@ -57,8 +68,22 @@ DROP TABLE tbl-mesta;
 dropdb mydb -U jnovak -h server
 
 
+
+
 ### 3. Import a export prostorovych dat v PostGIS ###
-[GUI / CLI]
+
+-- INSERT
+
+INSERT INTO tbl_mesta(id, mesto, geom, ulice)	
+VALUES 
+(1,'Mesto1', ST_GeomFromEWKT('SRID=4326;POINT(14.42450567543761863 50.06887390896474699)'), 'Ulice1'), 
+(2,'Mesto2', ST_GeomFromEWKT('SRID=4326;POINT(14.42350490489711845 50.08645450656709386)'), 'Ulice2'), 
+(3,'Mesto3', ST_GeomFromEWKT('SRID=4326;POINT(14.42399707376493545 50.08708758612597478)'), 'Ulice3'); 
+
+DELETE FROM tbl_mesta WHERE id=1;
+
+$psql -U jnovak -d mydb -a -f insertvalues.sql
+
 
 
 ### Reference: ###
@@ -80,6 +105,8 @@ CREATE TABLE	mojeDB
    atribut2 integet NOT NULL, 
    CONSTRAINT pk_id PRIMARY KEY (atribut1)
    );
+
+-- INSERT 
 
 
 
