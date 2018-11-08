@@ -29,12 +29,6 @@ SELECT postgis_full_version;
 
 
 
-
-
-
-
-
-
 ### 2. Vytvarime prostorovou databazi ### 
 [CREATEDB, CREATE TABLE]
 
@@ -72,7 +66,6 @@ CREATE TABLE tbl-mesta
 DROP TABLE tbl-mesta; 
 
 dropdb mydb -U jnovak -h server
-
 
 
 
@@ -114,7 +107,29 @@ active_schema=public" \
 SidlaBody.shp \
 -a_srs EPSG:5514
 
+### 3. Prostorove funkce ### 
 
+-- Mereni rozmeru 2D, 3D
+-- ST_Distance vraci 2D vzdalenost v kartezkem souradnicovym systemu dvou geometrii v jednotkach projekce
+float ST_Distance(geometry g1, geometry g2);
+
+-- ST_Length vraci 2D delku geometrie pro typy LineString nebo MultiLineString
+float ST_Length(geometry a_2dlinestring);
+
+-- ST_Dwithin vraci True jestlize jsou geometrie v ramci zadane vzdalenosti, jedna se o filter
+boolean ST_DWithin(geometry g1, geometry g2, double precision distance_of_srid);
+
+--
+-- Prostorove vztahy
+-- ST_Intersects vraci True jestlize se dve geometrie prekryvaji (pracuje s obalkou) 
+boolean ST_Intersects( geometry geomA , geometry geomB );
+
+-- ST_Within vraci True jestlize geometrie A je kompletne uvnitr geometrie B; 
+boolean ST_Within(geometry A, geometry B);
+
+
+-- ST_Transform vraci geometrii transformovanou do zadane SRID (EPSG) projekce 
+geometry ST_Transform(geometry g1, integer srid); 
 
 
 
