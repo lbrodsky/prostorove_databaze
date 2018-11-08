@@ -140,11 +140,41 @@ http://postgis.net/docs/manual-2.1/
 
 ### SQL opakovani ###
 
--- vyber z tabulky (SELECT)
+-- Vyber z tabulky (SELECT)
 
 SELECT 		nazevatributu
 FROM    	nazevtabulky
 WHERE 		nazevatributu = 'hodnota'
+
+-- Agregacni funkce 
+COUNT
+SUM
+MAX
+MIN
+
+-- Logicke operatory
+AND
+OR
+NOT
+IS NULL 
+IS NOT NULL
+
+-- Kvantifikace 
+-- EXISTS operator testuje existenci zaznamu v pod-dotazu 
+SELECT column_name(s)
+FROM table_name
+WHERE EXISTS
+(SELECT column_name FROM table_name WHERE condition); 
+
+-- aliasy
+-- atributove
+SELECT column_name AS alias_name
+FROM table_name;
+
+-- tabulkove
+SELECT column_name(s)
+FROM table_name AS alias_name;
+
 
 -- tvorba tabulky 
 
