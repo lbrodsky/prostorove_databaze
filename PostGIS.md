@@ -1,4 +1,4 @@
-# PostGIS minimum
+# PostGIS
 
 
 ## Zaklady prace s geodatabazi PostGIS ## 
