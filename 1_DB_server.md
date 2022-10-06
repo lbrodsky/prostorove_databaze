@@ -9,12 +9,25 @@ Systemy s DB serverem:
 
 
 ## 1. GIS.lab
+[GIS.lab desktop layout](https://gislab.readthedocs.io/en/latest/_images/client-layout.png)
+
+Hlavni panel:
+1. pousteni aplikaci 
+2. ikonky vybranych 
+3. virtualni desktopy
+4. spustene aplikace
+5. klavesnice 
+6. bateria (u notebooku)
+7. chat v siti GIS.lab
+8. zvuk 
+9. cas a kalendar
+
 [GIS.lab system](https://gislab.readthedocs.io/en/latest/client-layout/index.html)
 
 Do GIS.lab klienta se pripojime bootem pres sitvou kartu pri startu PC. 
 Je nutne vyvolat vstup do BIOSu (F2 / DEL) a pote Ctrl+Alt+Del 
 
-[Desktop klienta](https://gislab.readthedocs.io/en/latest/_images/client-layout-qgis.png) 
+[Desktop klienta s Qgis](https://gislab.readthedocs.io/en/latest/_images/client-layout-qgis.png) 
 
 - Desktop aplikace: QGIS
 - Geodatabaze: PostgreSQL/PostGIS server a PgAdmin III, SpatiaLite
@@ -29,6 +42,7 @@ K vyuziti OSGeo live je treba instalovat:
 * VirtualBox (Oracle VM VirtualBox) https://www.virtualbox.org 
 * OSGeo live, v.9/10 (linux) a vyssi https://live.osgeo.org/en/download.html
 
+Potrebne sw aplikace: 
 - Desktop aplikace: QGIS
 - Geodatabaze: PostgreSQL/PostGIS server a PgAdmin III, SpatiaLite
 - Text editor: Leafpad
