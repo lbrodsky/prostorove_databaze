@@ -1,15 +1,17 @@
 # Databazovy server 
+
 * [PostgreSQL](https://www.postgresql.org/) / [PostGIS](https://postgis.net/) 
+[<img src="https://postgis.net/logos/postgis-logo-small.png">](PostGIS)
 * [SQLite](https://www.sqlite.org/index.html) / [SpatiaLite](https://www.gaia-gis.it/fossil/libspatialite/index)
+[<img src="https://www.gaia-gis.it/fossil/libspatialite/logo">](Spatialite)
 
 Systemy s DB serverem: 
 1. Varianta: GIS.lab system
 2. Varianta: predinstalovany server v OSGeo live
 3. Varianta: localhost (vlastni notebook nebo desktop)
 
-
 ## 1. GIS.lab
-[GIS.lab desktop layout](https://gislab.readthedocs.io/en/latest/_images/client-layout.png)
+[<img src="https://gislab.readthedocs.io/en/latest/_images/client-layout.png">](GIS.lab desktop layout)
 
 Hlavni panel:
 1. pousteni aplikaci 
@@ -22,12 +24,12 @@ Hlavni panel:
 8. zvuk 
 9. cas a kalendar
 
-[GIS.lab system](https://gislab.readthedocs.io/en/latest/client-layout/index.html)
+[Dokumentace GIS.lab systemu](https://gislab.readthedocs.io/en/latest/client-layout/index.html)
 
 Do GIS.lab klienta se pripojime bootem pres sitvou kartu pri startu PC. 
 Je nutne vyvolat vstup do BIOSu (F2 / DEL) a pote Ctrl+Alt+Del 
 
-[Desktop klienta s Qgis](https://gislab.readthedocs.io/en/latest/_images/client-layout-qgis.png) 
+[<img src="https://gislab.readthedocs.io/en/latest/_images/client-layout-qgis.png">](Desktop klienta s Qgis)
 
 - Desktop aplikace: QGIS
 - Geodatabaze: PostgreSQL/PostGIS server a PgAdmin III, SpatiaLite
