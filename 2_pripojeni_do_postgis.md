@@ -21,8 +21,11 @@ User: k01 (jiny)
 Database -> DB manager -> PostGIS -> PDB 
 -> SQL dotaz 
 
-### 2.Pristup pres **terminal** 
+### 2.Pristup pres **terminal** pomoci PSQL ('SQL shell')
 
 $ psql -h 10.30.6.170 -d pdb -U k01 
 
 (heslo zadame po dotazu terminalu)
+
+
+### 3. PgAdmin 
