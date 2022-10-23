@@ -20,4 +20,41 @@ postgres# CREATE DATABASE mojedb;
 ```
 
 
-### 2. Linux 
+### 2. Linux terminal 
+
+[CREATEDB, CREATE TABLE]
+
+ALTER ROLE <user_name> SUPERUSER; 
+
+CREATE EXTENSION postgis;
+
+ALTER ROLE <user_name> NONSUPERUSER;
+
+\dt
+\h -- help
+\q -- odchod z psql
+
+SELECT *
+FROM spatial_ref_sys
+WHERE SRID==5514;
+
+-- createdb
+
+createdb mydb -U jnovak -h server 
+
+psql -d mydb -h server 
+
+
+-- CREATE TABLE 
+
+CREATE TABLE tbl-mesta 
+   (id integer NOT NULL, 
+   mesto character(30), 
+   psc character(6), 
+   geom geometry, 
+   CONSTRAINT pk_id PRIMARY KEY (id)
+   ); 
+
+DROP TABLE tbl-mesta; 
+
+dropdb mydb -U jnovak -h server
