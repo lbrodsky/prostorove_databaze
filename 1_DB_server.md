@@ -61,6 +61,20 @@ TODO: vlastni lokalni instalace
 ## 3. Lokalni instalce (localhost) 
 
 ### 3.1 Windows 
+[PostgreSQl](https://www.postgresql.org/) 
+
+Download -> Windows -> Download the installer (verze 15.0 napr.) 
+
+Spust PostgreSQL installer potgresql-*-windows-x64.exe -> Ano pro vsechny defaultni nastaveni 
+-> nastavit heslo -> Port 5432 -> Default Locale 
+
+Spustit PgAdmin -> test PostgreSQL server (heslo) -> klik Servers (heslo pro logovani do serveru)
+
+postgres je defaultni databaze (okno SQL ukazuje skript pro vytvoreni defualtni databaze)
+
+Odpojeni od databaze: 'pravy klik' na PostgreSQL -> Disconnect -> Odejit 
+
+
 
 ### 3.2 GNU/Linux 
 
