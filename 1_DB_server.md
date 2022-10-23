@@ -74,7 +74,8 @@ postgres je defaultni databaze (okno SQL ukazuje skript pro vytvoreni defualtni 
 
 Odpojeni od databaze: 'pravy klik' na PostgreSQL -> Disconnect -> Odejit 
 
-
+<img width="170" alt="image" src="https://user-images.githubusercontent.com/11438547/197375820-717d9b70-8f71-4849-9a94-2b740bc397f3.png">
+    
 
 ### 3.2 GNU/Linux 
 
