@@ -1,5 +1,6 @@
 # Práce s geometrickými prvky OGC SF 
 
+
 ST_GeomFromText(text)
 
 ### WKT: 
