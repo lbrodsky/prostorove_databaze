@@ -1,0 +1,1 @@
+# Vytvoření prostorove databáze
