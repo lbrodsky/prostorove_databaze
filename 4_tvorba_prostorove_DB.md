@@ -2,7 +2,9 @@
 
 ### Nova DB:
 -- Postgres utilita 
+```
 $ createdb moje_prostorova_databaze 
+```
 
 psql -d moje_prostorova_databaze
 mpd-# \dt ... zatim zadne tabulky a prostorova data neumi 
