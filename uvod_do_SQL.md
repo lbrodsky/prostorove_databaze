@@ -3,16 +3,16 @@
 ## Prikaz SELECT
 Cteni dat z DB 
 
---Nejednodussi forma SELECTu je 
+--Nejednodussi forma SELECTu je <br>
 SELECT "co" FROM "odkud"
 
-Priklad z DB Naturalearth: 
+Priklad z DB Naturalearth: <br>
 `
-SELECT name_long 
+SELECT name_long <br>
 FROM countries;
 `
 
-Ukol: Pridejte atributy postal a pop2020 do vypisu
+Ukol: Pridejte atributy postal a pop2020 do vypisu <br>
 Jmeno sloupce 'name_long' prepiste na 'Zeme' pomoci aliasu `AS`
 
 ## COUNT
