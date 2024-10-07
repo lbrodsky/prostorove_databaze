@@ -7,10 +7,10 @@ Cteni dat z DB
 SELECT "co" FROM "odkud"
 
 Priklad z DB Naturalearth: <br>
-`
-SELECT name_long 
-FROM countries;
-`
+
+*SELECT name_long* <br>
+*FROM countries;* <br>
+
 
 Ukol: Pridejte atributy postal a pop2020 do vypisu <br>
 Jmeno sloupce 'name_long' prepiste na 'Zeme' pomoci aliasu `AS`
