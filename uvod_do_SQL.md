@@ -95,5 +95,20 @@ FROM countries;
 WHERE GDP BETWEEN 1000 and 2000;  
 `
 
+Prepiste test rozmnezi pomoci < >
+
+## Kombinace AND a OR 
+SELECT "co" FROM "odkud" WHERE atribut = hodnota AND 
+                               atribut2 = 1 OR atribut3 > 13; 
+
+Priklad: 
+`
+SELECT name_long 
+FROM countries;
+WHERE att = 'Europe' AND 
+att2 LIKE 'A%' or att3 > 1000; 
+`
+
+
 
 
