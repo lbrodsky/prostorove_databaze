@@ -17,7 +17,7 @@ Jmeno sloupce 'name_long' prepiste na 'Zeme' pomoci aliasu `AS`
 
 ## COUNT
 Spocitejte kolik je zemi v DB Naturalearth <br>
-SELECT COUNT(*) FROM "odkud"
+SELECT COUNT(*) FROM "odkud" <br>
 
 ## Podminka WHERE
 SELECT "co" FROM "odkud" WHERE "podminka" <br>
@@ -44,10 +44,10 @@ SELECT "co" FROM "odkud" WHERE atribut LIKE 'Cern%'; <br>
 Cern[ýá] <br>
 
 ## Negace NOT
-Vyber vsech krome ..., s operatorem negace. 
-SELECT "co" FROM "odkud" WHERE NOT "podminka" 
+Vyber vsech krome ..., s operatorem negace. <br>
+SELECT "co" FROM "odkud" WHERE NOT "podminka" <br>
 
-Priklad vsichni krome "..."
+Priklad vsichni krome "..." <br>
 `
 SELECT name_long 
 FROM countries 
@@ -55,10 +55,10 @@ WHERE NOT LIKE 'Eu%';
 `
 
 ## A soucasne AND
-Pro vyber uplatnujem vice kriterii soucasne 
-SELECT "co" FROM "odkud" WHERE "podminka1 " AND "podminak2"
+Pro vyber uplatnujem vice kriterii soucasne <br>
+SELECT "co" FROM "odkud" WHERE "podminka1 " AND "podminak2" <br>
 
-Priklda: 
+Priklad: <br> 
 `
 SELECT name_long 
 FROM countries 
@@ -67,8 +67,8 @@ country LIKE 'C%';
 `
 
 ## Alespon jedno OR 
-Splneni alespon jednoho z kriterii 
-SELECT "co" FROM "odkud" WHERE "podminka1 " or "podminak2"
+Splneni alespon jednoho z kriterii <br>
+SELECT "co" FROM "odkud" WHERE "podminka1 " or "podminak2" <br>
 
 `
 SELECT name_long 
@@ -78,7 +78,7 @@ country LIKE 'C%';
 `
 
 ## Operator IN ~ patri do vyctu 
-SELECT "co" FROM "odkud" WHERE atribut IN (1, 2); 
+SELECT "co" FROM "odkud" WHERE atribut IN (1, 2); <br>
 
 `
 SELECT name_long 
@@ -87,8 +87,8 @@ WHERE att IN (1, 2);
 `
 
 ## Test rozmezi BETWEEN 
-Casto potrebujem testovat, zda nejaka hodnota patri do zadaneho rozmezi od do
-SELECT "co" FROM "odkud" WHERE atribut BETWEEN 1 AND 2; 
+Casto potrebujem testovat, zda nejaka hodnota patri do zadaneho rozmezi od do <br>
+SELECT "co" FROM "odkud" WHERE atribut BETWEEN 1 AND 2; <br>
 
 `
 SELECT name_long 
@@ -96,13 +96,13 @@ FROM countries
 WHERE GDP BETWEEN 1000 and 2000;  
 `
 
-Prepiste test rozmnezi pomoci < >
+Prepiste test rozmnezi pomoci < > <br>
 
 ## Kombinace AND a OR 
-SELECT "co" FROM "odkud" WHERE atribut = hodnota AND 
+SELECT "co" FROM "odkud" WHERE atribut = hodnota AND <br>
                                atribut2 = 1 OR atribut3 > 13; 
 
-Priklad: 
+Priklad: <br>
 `
 SELECT name_long 
 FROM countries 
@@ -111,13 +111,13 @@ att2 LIKE 'A%' or att3 > 1000;
 `
 
 ## Priorita operatoru 
-Operatory maji ruznou prioritu pri vyhodnocovani. Napr. porovnani = je silnejsi nez NOT, ktere je sitlnejsi nez AND, jez je zase silnejsi nez OR. 
-Over na webu "operator precedence t-sql". 
+Operatory maji ruznou prioritu pri vyhodnocovani. Napr. porovnani = je silnejsi nez NOT, ktere je sitlnejsi nez AND, jez je zase silnejsi nez OR. <br>
+Over na webu "operator precedence t-sql". <br>
 
 ## Razeni ORDER BY 
-Vysledek SQL dotazu chceme usporadat podle nejakeho kriteria, napriklad abecedy. 
+Vysledek SQL dotazu chceme usporadat podle nejakeho kriteria, napriklad abecedy. <br>
 
-Priklad: vypiste vsechny zeme pomoci radiciho kriteria ORDER BY: 
+Priklad: vypiste vsechny zeme pomoci radiciho kriteria ORDER BY: <br>
 
 `
 SELECT name_long 
@@ -135,7 +135,7 @@ ORDER BY
 `
 
 ## Vypis od nejmensiho 
-Jako hlavni radixi kriterium vyuzijem HDP hodnotu 
+Jako hlavni radixi kriterium vyuzijem HDP hodnotu <br>
 `
 SELECT name_long, continent, HDP
 FROM countries
@@ -158,15 +158,15 @@ ORDER BY
 ## Zmena vystupu 
 
 ## Spojeni sloupcu 
-SELECT prijmeni + N' ' + jmeno AS Cele jmeno FROM "odkud"
+SELECT prijmeni + N' ' + jmeno AS Cele jmeno FROM "odkud" <br>
 
 ## Primy vypocet 
-SELECT 1 + 1 AS [1+1], 
-       N'1' + N'1' AS [N'1'+ N'1'] 
-       1 + 2 * 3 AS [1 + 2 * 3]; 
+SELECT 1 + 1 AS [1+1],  <br>
+       N'1' + N'1' AS [N'1'+ N'1']  <br>
+       1 + 2 * 3 AS [1 + 2 * 3]; <br>
 
 ## CASE na hodnoty 
-Nekdy chceme vystup upravovat pro kazdou hodnotu zvlast. 
+Nekdy chceme vystup upravovat pro kazdou hodnotu zvlast. <br>
 `
 SEELCT name_long, ... 
   CASE att 
@@ -179,7 +179,7 @@ FROM countries;
 `
 
 ## CASE na podminky 
-Nekdy chceme vystup upravovat pro kazdou hodnotu zvlast. 
+Nekdy chceme vystup upravovat pro kazdou hodnotu zvlast. <br>
 `
 SEELCT name_long, ... 
   CASE 
@@ -191,24 +191,24 @@ FROM countries;
 `
 
 ## Hodnota NULL 
-Vypiste vsechny zaznamy uk terych chybi hodnata atributu ... 
-SELECT atribut FROM db WHERE atribut = NULL; 
+Vypiste vsechny zaznamy uk terych chybi hodnata atributu ... <br>
+SELECT atribut FROM db WHERE atribut = NULL; <br>
 
 Nebo 
-SELECT atribut FROM db WHERE atribut <> NULL; 
+SELECT atribut FROM db WHERE atribut <> NULL;  <br>
 
 ## Spravy test na NULL 
-SELECT atribut FROM db WHERE atribut IS NULL;  !!! 
+SELECT atribut FROM db WHERE atribut IS NULL;  !!! <br>
 
-Nebo 
+Nebo <br>
 
-SELECT atribut FROM db WHERE atribut IS NOT NULL;  !!! 
+SELECT atribut FROM db WHERE atribut IS NOT NULL;  !!! <br>
 
 ## Funkce ISNULL 
-Funkce ISNULL prebira dva parametry. Jejim vysledkem je hodnota prvniho parametru, pokud tento neni NULL. V opacnem pripade je vysledkem funkce hodnota druheho parametru. 
-SELECT 
-  ISNULL(N'Test', N'Nahradni hodnota'), 
-  ISNULL(NULL, N'Nahradni hodnota'); 
+Funkce ISNULL prebira dva parametry. Jejim vysledkem je hodnota prvniho parametru, pokud tento neni NULL. V opacnem pripade je vysledkem funkce hodnota druheho parametru. <br>
+SELECT  <br>
+  ISNULL(N'Test', N'Nahradni hodnota'), <br>
+  ISNULL(NULL, N'Nahradni hodnota'); <br>
 
 
 
