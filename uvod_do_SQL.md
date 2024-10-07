@@ -8,8 +8,8 @@ SELECT "co" FROM "odkud"
 
 Priklad z DB Naturalearth: <br>
 
-*SELECT name_long* <br>
-*FROM countries;* <br>
+**SELECT name_long** <br>
+**FROM countries;** <br>
 
 
 Ukol: Pridejte atributy postal a pop2020 do vypisu <br>
