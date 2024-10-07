@@ -43,3 +43,15 @@ SELECT "co" FROM "odkud" WHERE atribut LIKE 'Cern%';
 Cern[ýá] 
 
 ## Negace NOT
+Vyber vsech krome ..., s operatorem negace. 
+SELECT "co" FROM "odkud" WHERE NOT "podminka" 
+
+Priklad vsichni krome "..."
+`
+SELECT name_long 
+FROM countries;
+WHERE NOT LIKE 'Eu%'; 
+`
+
+
+
