@@ -3,7 +3,7 @@
 ## Prikaz SELECT
 Cteni dat z DB 
 
---Nejednodussi forma SELECTu
+--Nejednodussi forma SELECTu je 
 SELECT "co" FROM "odkud"
 
 Priklad z DB Naturalearth: 
