@@ -16,11 +16,11 @@ Ukol: Pridejte atributy postal a pop2020 do vypisu <br>
 Jmeno sloupce 'name_long' prepiste na 'Zeme' pomoci aliasu `AS`
 
 ## COUNT
-Spocitejte kolik je zemi v DB Naturalearth 
+Spocitejte kolik je zemi v DB Naturalearth <br>
 SELECT COUNT(*) FROM "odkud"
 
 ## Podminka WHERE
-SELECT "co" FROM "odkud" WHERE "podminka"
+SELECT "co" FROM "odkud" WHERE "podminka" <br>
 
 Priklad: 
 `
@@ -29,18 +29,19 @@ FROM countries
 WHERE continent = 'Europe'; 
 `
 
-Pro test na nerovnost se pouziva zapis < > nebo take nekdy != 
+Pro test na nerovnost se pouziva zapis < > nebo take nekdy != <br>
 
-Ukol: vyberte vsechnz ne-Evropske zeme a vzpiste je. 
+Ukol: vyberte vsechnz ne-Evropske zeme a vzpiste je. <br>
 
-Casto potrebujeme testovat jestli nejaka hodnota presahuje ci nepresahuje nejakou jinou. 
+Casto potrebujeme testovat jestli nejaka hodnota presahuje ci nepresahuje nejakou jinou. <br>
 SELECT "co" FROM "odkud" WHERE atribut <= 10000; 
 
-Test na text nemusi byt vzdy presny, muze zamerne obsahovat urcitou volnost. 
-Pro volnejsi test textu se pouzije prikaz `LIKE`a v hledanem vzoru se pouzivaji zastupne znaky %, _ a [] 
-SELECT "co" FROM "odkud" WHERE atribut LIKE 'Cern%';
-'Cern_'
-Cern[ýá] 
+Test na text nemusi byt vzdy presny, muze zamerne obsahovat urcitou volnost. <br>
+Pro volnejsi test textu se pouzije prikaz `LIKE`a v hledanem vzoru se pouzivaji zastupne znaky %, _ a [] <br>
+
+SELECT "co" FROM "odkud" WHERE atribut LIKE 'Cern%'; <br>
+'Cern_' <br>
+Cern[ýá] <br>
 
 ## Negace NOT
 Vyber vsech krome ..., s operatorem negace. 
