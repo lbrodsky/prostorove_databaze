@@ -38,9 +38,9 @@ SELECT "co" FROM "odkud" WHERE atribut <= 10000; <br/>
 Test na text nemusi byt vzdy presny, muze zamerne obsahovat urcitou volnost. <br>
 Pro volnejsi test textu se pouzije prikaz `LIKE`a v hledanem vzoru se pouzivaji zastupne znaky %, _ a [] <br>
 
-SELECT "co" FROM "odkud" WHERE atribut LIKE 'Cern%'; <br>
-'Cern_' <br>
-Cern[ýá] <br>
+SELECT "co" FROM "odkud" WHERE atribut LIKE 'Čern%'; <br>
+'Čern_' <br>
+'Čern[ýá]' <br>
 
 ## Negace NOT
 Vyber vsech krome ..., s operatorem negace. <br>
