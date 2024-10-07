@@ -8,7 +8,8 @@ SELECT "co" FROM "odkud"
 
 Priklad z DB Naturalearth: <br>
 `
-SELECT name_long <br>
+SELECT name_long 
+
 FROM countries;
 `
 
