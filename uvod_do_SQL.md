@@ -53,5 +53,47 @@ FROM countries;
 WHERE NOT LIKE 'Eu%'; 
 `
 
+## A soucasne AND
+Pro vyber uplatnujem vice kriterii soucasne 
+SELECT "co" FROM "odkud" WHERE "podminka1 " AND "podminak2"
+
+Priklda: 
+`
+SELECT name_long 
+FROM countries;
+WHERE continent = 'Europe' AND 
+country LIKE 'C%';  
+`
+
+## Alespon jedno OR 
+Splneni alespon jednoho z kriterii 
+SELECT "co" FROM "odkud" WHERE "podminka1 " or "podminak2"
+
+`
+SELECT name_long 
+FROM countries;
+WHERE country LIKE 'A%' OR 
+country LIKE 'C%';  
+`
+
+## Operator IN ~ patri do vyctu 
+SELECT "co" FROM "odkud" WHERE atribut IN (1, 2); 
+
+`
+SELECT name_long 
+FROM countries;
+WHERE att IN (1, 2);  
+`
+
+## Test rozmezi BETWEEN 
+Casto potrebujem testovat, zda nejaka hodnota patri do zadaneho rozmezi od do
+SELECT "co" FROM "odkud" WHERE atribut BETWEEN 1 AND 2; 
+
+`
+SELECT name_long 
+FROM countries;
+WHERE GDP BETWEEN 1000 and 2000;  
+`
+
 
 
