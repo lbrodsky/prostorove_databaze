@@ -66,25 +66,25 @@ Priklad: <br>
 Splneni alespon jednoho z kriterii <br>
 SELECT "co" FROM "odkud" WHERE "podminka1 " or "podminak2" <br>
 
-**SELECT name_long**
-**FROM countries**
-**WHERE country LIKE 'A%' OR**
-**country LIKE 'C%';**
+**SELECT name_long** <br>
+**FROM countries** <br>
+**WHERE country LIKE 'A%' OR** <br>
+**country LIKE 'C%';** <br>
 
 ## Operator IN ~ patri do vyctu 
 SELECT "co" FROM "odkud" WHERE atribut IN (1, 2); <br>
 
-**SELECT name_long **
-**FROM countries**
-**WHERE att IN (1, 2);**
+**SELECT name_long** <br>
+**FROM countries** <br>
+**WHERE att IN (1, 2);** <br>
 
 ## Test rozmezi BETWEEN 
 Casto potrebujem testovat, zda nejaka hodnota patri do zadaneho rozmezi od do <br>
 SELECT "co" FROM "odkud" WHERE atribut BETWEEN 1 AND 2; <br>
 
-**SELECT name_long**
-**FROM countries**
-**WHERE GDP BETWEEN 1000 and 2000;**
+**SELECT name_long** <br>
+**FROM countries** <br>
+**WHERE GDP BETWEEN 1000 and 2000;** <br>
 
 Prepiste test rozmnezi pomoci < > <br>
 
@@ -93,10 +93,10 @@ SELECT "co" FROM "odkud" WHERE atribut = hodnota AND <br>
                                atribut2 = 1 OR atribut3 > 13; 
 
 Priklad: <br>
-**SELECT name_long**
-**FROM countries**
-**WHERE att = 'Europe' AND**
-**att2 LIKE 'A%' or att3 > 1000;**
+**SELECT name_long** <br>
+**FROM countries** <br>
+**WHERE att = 'Europe' AND** <br>
+**att2 LIKE 'A%' or att3 > 1000;** <br>
 
 ## Priorita operatoru 
 Operatory maji ruznou prioritu pri vyhodnocovani. Napr. porovnani = je silnejsi nez NOT, ktere je sitlnejsi nez AND, jez je zase silnejsi nez OR. <br>
@@ -107,35 +107,35 @@ Vysledek SQL dotazu chceme usporadat podle nejakeho kriteria, napriklad abecedy.
 
 Priklad: vypiste vsechny zeme pomoci radiciho kriteria ORDER BY: <br>
 
-**SELECT name_long**
-**FROM countries**
-**ORDER BY name_long;**
+**SELECT name_long** <br>
+**FROM countries** <br>
+**ORDER BY name_long;** <br>
 
 ## Dve radici kriteria 
-**SELECT name_long, continent**
-**FROM countries**
-**ORDER BY**
-  **continent, -- primarni radici kriterium**
-  **name_long; -- sekundarni radici kritereium**
+**SELECT name_long, continent** <br>
+**FROM countries** <br>
+**ORDER BY** <br>
+  **continent, -- primarni radici kriterium** <br>
+  **name_long; -- sekundarni radici kritereium** <br>
 
 ## Vypis od nejmensiho 
 Jako hlavni radixi kriterium vyuzijem HDP hodnotu <br>
 
-**SELECT name_long, continent, HDP**
-**FROM countries**
-**ORDER BY**
-  **HDP DESC, -- primarni radici kriterium**
-  **continent,**
-  **name_long;**
+**SELECT name_long, continent, HDP** <br>
+**FROM countries** <br>
+**ORDER BY** <br>
+  **HDP DESC, -- primarni radici kriterium** <br>
+  **continent,** <br>
+  **name_long;** <br>
 
 ## Razeni a vyber v jednom 
-**SELECT name_long, continent, HDP**
-**FROM countries**
-**WHERE continent = 'Europe'**
-**ORDER BY**
-  **HDP DESC, -- primarni radici kriterium**
-  **continent,**
-  **name_long;**
+**SELECT name_long, continent, HDP** <br>
+**FROM countries** <br>
+**WHERE continent = 'Europe'** <br>
+**ORDER BY** <br>
+  **HDP DESC, -- primarni radici kriterium** <br>
+  **continent,** <br>
+  **name_long;** <br>
 
 ## Zmena vystupu 
 
@@ -143,32 +143,32 @@ Jako hlavni radixi kriterium vyuzijem HDP hodnotu <br>
 SELECT prijmeni + N' ' + jmeno AS Cele jmeno FROM "odkud" <br>
 
 ## Primy vypocet 
-**SELECT 1 + 1 AS [1+1],  <br>**
-       **N'1' + N'1' AS [N'1'+ N'1']  <br>**
-       **1 + 2 * 3 AS [1 + 2 * 3]; <br>**
+**SELECT 1 + 1 AS [1+1],  <br>** <br>
+       **N'1' + N'1' AS [N'1'+ N'1']  <br>** <br>
+       **1 + 2 * 3 AS [1 + 2 * 3]; <br>** <br>
 
 ## CASE na hodnoty 
 Nekdy chceme vystup upravovat pro kazdou hodnotu zvlast. <br>
 
-**SEELCT name_long, ...**
-  **CASE att**
-    **WHEN 1 THEN 'Prvni'**
-    **WHEN 2 THEN 'Druhy'**
-    **WHEN 3 THEN 'Treti'**
-    **ELSE 'Neznamy'**
-  **END AS Atribut**
-**FROM countries;**
+**SEELCT name_long, ...** <br>
+  **CASE att** <br>
+    **WHEN 1 THEN 'Prvni'** <br>
+    **WHEN 2 THEN 'Druhy'** <br>
+    **WHEN 3 THEN 'Treti'** <br>
+    **ELSE 'Neznamy'** <br>
+  **END AS Atribut** <br>
+**FROM countries;** <br>
 
 ## CASE na podminky 
 Nekdy chceme vystup upravovat pro kazdou hodnotu zvlast. <br>
 
-**SEELCT name_long, ...**
-  **CASE**
-    **WHEN HDP < 1000 THEN 'Pposledni'**
-    **WHEN HDP > 5000 THEN 'Treti'**
-    **ELSE 'Prostredni'**
-  **END AS hdp**
-**FROM countries;**
+**SEELCT name_long, ...** <br>
+  **CASE** <br>
+    **WHEN HDP < 1000 THEN 'Pposledni'** <br>
+    **WHEN HDP > 5000 THEN 'Treti'** <br>
+    **ELSE 'Prostredni'** <br>
+  **END AS hdp** <br>
+**FROM countries;** <br>
 
 ## Hodnota NULL 
 Vypiste vsechny zaznamy uk terych chybi hodnata atributu ... <br>
