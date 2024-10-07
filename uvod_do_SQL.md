@@ -23,9 +23,9 @@ SELECT COUNT(*) FROM "odkud" <br>
 SELECT "co" FROM "odkud" WHERE "podminka" <br>
 
 Priklad: <br/> 
-**SELECT name_long**
-**FROM countries**
-**WHERE continent = 'Europe';**
+**SELECT name_long** <br>
+**FROM countries** <br>
+**WHERE continent = 'Europe';** <br>
 
 
 Pro test na nerovnost se pouziva zapis < > nebo take nekdy != <br>
@@ -48,19 +48,19 @@ SELECT "co" FROM "odkud" WHERE NOT "podminka" <br>
 
 Priklad vsichni krome "..." <br>
 
-**SELECT name_long**
-**FROM countries**
-**WHERE NOT LIKE 'Eu%';**
+**SELECT name_long** <br>
+**FROM countries** <br>
+**WHERE NOT LIKE 'Eu%';** <br>
 
 ## A soucasne AND
 Pro vyber uplatnujem vice kriterii soucasne <br>
 SELECT "co" FROM "odkud" WHERE "podminka1 " AND "podminak2" <br>
 
 Priklad: <br> 
-**SELECT name_long**
-**FROM countries**
-**WHERE continent = 'Europe' AND**
-**country LIKE 'C%';**
+**SELECT name_long** <br>
+**FROM countries** <br>
+**WHERE continent = 'Europe' AND** <br>
+**country LIKE 'C%';** <br>
 
 ## Alespon jedno OR 
 Splneni alespon jednoho z kriterii <br>
