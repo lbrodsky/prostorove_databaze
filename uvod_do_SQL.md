@@ -1,4 +1,5 @@
 # Uvod do SQL 
+Priklady z tohoto uvodu do SQL lze aplikovat na databazi `naturalearth` implementovanou na PostgreSQL/PostGIS serveru sidlicim na domene `osgeo.natur.cuni.cz`. 
 
 ## Prikaz SELECT
 Cteni dat z DB 
@@ -160,12 +161,12 @@ Nekdy chceme vystup upravovat pro kazdou hodnotu zvlast. <br>
 ## CASE na podminky 
 Nekdy chceme vystup upravovat pro kazdou hodnotu zvlast. <br>
 
-**SEELCT name_long, ...** <br>
+**SEELCT name_long** <br>
   **CASE** <br>
-    **WHEN HDP < 1000 THEN 'Pposledni'** <br>
-    **WHEN HDP > 5000 THEN 'Treti'** <br>
+    **WHEN GDP < 1000 THEN 'Posledni'** <br>
+    **WHEN GDP > 5000 THEN 'Treti'** <br>
     **ELSE 'Prostredni'** <br>
-  **END AS hdp** <br>
+  **END AS GDP** <br>
 **FROM countries;** <br>
 
 ## Hodnota NULL 
@@ -176,7 +177,7 @@ Nebo
 SELECT atribut FROM db WHERE atribut <> NULL;  <br>
 
 ## Spravy test na NULL 
-SELECT atribut FROM db WHERE atribut IS NULL;  !!! <br>
+SELECT atribut FROM db WHERE atribut **IS NULL**;  !!! <br>
 
 Nebo <br>
 
@@ -185,8 +186,55 @@ SELECT atribut FROM db WHERE atribut IS NOT NULL;  !!! <br>
 ## Funkce ISNULL 
 Funkce ISNULL prebira dva parametry. Jejim vysledkem je hodnota prvniho parametru, pokud tento neni NULL. V opacnem pripade je vysledkem funkce hodnota druheho parametru. <br>
 **SELECT** <br>
-  **ISNULL(N'Test', N'Nahradni hodnota'),** <br>
-  **ISNULL(NULL, N'Nahradni hodnota');** <br>
+  **ISNULL(att, 'Nahradni hodnota'),** <br>
+  **ISNULL(NULL, 'Nahradni hodnota');** <br>
+
+## Vypis unikátních hodnot z určitého sloupce v tabulce: DISTINCT 
+**SELECT DISTINCT region_un** <br/> 
+**FROM countries;** <br/>
+
+## Seskupovani GROUP BY
+Agregacni funkce umoznuji spocitat pocty, soucty a podobne. 
+Nejprve je potreba urcit ktery atribut pouzijem k seskupovani. Pak tento atribut uvedeme za SELECTem a za klicovym slovem GROUP BY. 
+SELECT atribut FROM tabulka GROUP BY atribut; 
+
+**SELECT region_un** <br/> 
+**FROM countries** <br/>
+**GROUP BY region_un;** <br/> 
+
+Zaroven nekdy potrebujem vedet kolik zaznamu se seskupilo pro danou unikatni hodnotu atrinutu. 
+
+**SELECT region_un, COUNT(*) AS pocet** <br/> 
+**FROM countries** <br/>
+**GROUP BY region_un;** <br/> 
+
+Pripadne vypis jeste seradime podle atributu pocet. 
+
+**SELECT region_un, COUNT(*) AS pocet** <br/> 
+**FROM countries** <br/>
+**GROUP BY region_un** <br/> 
+**ORDER BY pocet;** <br/> 
+
+Klicove slovo **COUNT** je mozne nahradit jinou agregacni funkci, napriklad SUM, apod. 
+
+## Klauzule HAVING 
+HAVING klauzule je speciálním druhem SQL příkazu, který se chová podobně jako jako WHERE. 
+To znamená, že pomocí ní definujeme omezující podmínku při vyhledávání nebo manipulaci s tabulkami.
+
+SELECT atribut
+FROM tabulka
+WHERE podminka1 
+GROUP BY atribut
+HAVING podminka2
+ORDER BY atribut;
+
+Priklad: 
+**SELECT COUNT(CustomerID), Country** <br/>
+**FROM Customers** <br/> 
+**GROUP BY Country** <br/> 
+**HAVING COUNT(CustomerID) > 5;** <br/> 
+
+Pozdeji: vnorene dotazy, JOIN, tvorba tabulek 
 
 
 
