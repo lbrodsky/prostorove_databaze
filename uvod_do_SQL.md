@@ -25,7 +25,7 @@ SELECT "co" FROM "odkud" WHERE "podminka" <br>
 Priklad: <br/> 
 **SELECT name_long** <br>
 **FROM countries** <br>
-**WHERE continent = 'Europe';** <br>
+**WHERE region_un = 'Europe';** <br>
 
 
 Pro test na nerovnost se pouziva zapis < > nebo take nekdy != <br>
@@ -50,7 +50,7 @@ Priklad vsichni krome "..." <br>
 
 **SELECT name_long** <br>
 **FROM countries** <br>
-**WHERE NOT LIKE 'Eu%';** <br>
+**WHERE region_un NOT LIKE 'Eu%';** <br>
 
 ## A soucasne AND
 Pro vyber uplatnujem vice kriterii soucasne <br>
@@ -59,8 +59,8 @@ SELECT "co" FROM "odkud" WHERE "podminka1 " AND "podminak2" <br>
 Priklad: <br> 
 **SELECT name_long** <br>
 **FROM countries** <br>
-**WHERE continent = 'Europe' AND** <br>
-**country LIKE 'C%';** <br>
+**WHERE region_un = 'Europe' AND** <br>
+**name_long LIKE 'C%';** <br>
 
 ## Alespon jedno OR 
 Splneni alespon jednoho z kriterii <br>
@@ -68,15 +68,15 @@ SELECT "co" FROM "odkud" WHERE "podminka1 " or "podminak2" <br>
 
 **SELECT name_long** <br>
 **FROM countries** <br>
-**WHERE country LIKE 'A%' OR** <br>
-**country LIKE 'C%';** <br>
+**WHERE name_long LIKE 'A%' OR** <br>
+**name_long LIKE 'C%';** <br>
 
 ## Operator IN ~ patri do vyctu 
 SELECT "co" FROM "odkud" WHERE atribut IN (1, 2); <br>
 
 **SELECT name_long** <br>
 **FROM countries** <br>
-**WHERE att IN (1, 2);** <br>
+**WHERE name_len IN (20, 24);** <br>
 
 ## Test rozmezi BETWEEN 
 Casto potrebujem testovat, zda nejaka hodnota patri do zadaneho rozmezi od do <br>
@@ -84,7 +84,7 @@ SELECT "co" FROM "odkud" WHERE atribut BETWEEN 1 AND 2; <br>
 
 **SELECT name_long** <br>
 **FROM countries** <br>
-**WHERE GDP BETWEEN 1000 and 2000;** <br>
+**WHERE label_y BETWEEN 40 and 60;** <br>
 
 Prepiste test rozmnezi pomoci < > <br>
 
@@ -95,8 +95,8 @@ SELECT "co" FROM "odkud" WHERE atribut = hodnota AND <br>
 Priklad: <br>
 **SELECT name_long** <br>
 **FROM countries** <br>
-**WHERE att = 'Europe' AND** <br>
-**att2 LIKE 'A%' or att3 > 1000;** <br>
+**WHERE region_un = 'Europe' AND** <br>
+**label_y BETWEEN 40 and 60;** <br>
 
 ## Priorita operatoru 
 Operatory maji ruznou prioritu pri vyhodnocovani. Napr. porovnani = je silnejsi nez NOT, ktere je sitlnejsi nez AND, jez je zase silnejsi nez OR. <br>
@@ -115,7 +115,7 @@ Priklad: vypiste vsechny zeme pomoci radiciho kriteria ORDER BY: <br>
 **SELECT name_long, continent** <br>
 **FROM countries** <br>
 **ORDER BY** <br>
-  **continent, -- primarni radici kriterium** <br>
+  **region_un, -- primarni radici kriterium** <br>
   **name_long; -- sekundarni radici kritereium** <br>
 
 ## Vypis od nejmensiho 
@@ -124,17 +124,17 @@ Jako hlavni radixi kriterium vyuzijem HDP hodnotu <br>
 **SELECT name_long, continent, HDP** <br>
 **FROM countries** <br>
 **ORDER BY** <br>
-  **HDP DESC, -- primarni radici kriterium** <br>
+  **label_y DESC, -- primarni radici kriterium** <br>
   **continent,** <br>
   **name_long;** <br>
 
 ## Razeni a vyber v jednom 
 **SELECT name_long, continent, HDP** <br>
 **FROM countries** <br>
-**WHERE continent = 'Europe'** <br>
+**WHERE region_un = 'Europe'** <br>
 **ORDER BY** <br>
-  **HDP DESC, -- primarni radici kriterium** <br>
-  **continent,** <br>
+  **label_y DESC, -- primarni radici kriterium** <br>
+  **region_un,** <br>
   **name_long;** <br>
 
 ## Zmena vystupu 
@@ -143,9 +143,7 @@ Jako hlavni radixi kriterium vyuzijem HDP hodnotu <br>
 SELECT prijmeni + N' ' + jmeno AS Cele jmeno FROM "odkud" <br>
 
 ## Primy vypocet 
-**SELECT 1 + 1 AS [1+1],  <br>** <br>
-       **N'1' + N'1' AS [N'1'+ N'1']  <br>** <br>
-       **1 + 2 * 3 AS [1 + 2 * 3]; <br>** <br>
+**SELECT 1 + 1 AS "1+1"; <br>** <br>
 
 ## CASE na hodnoty 
 Nekdy chceme vystup upravovat pro kazdou hodnotu zvlast. <br>
