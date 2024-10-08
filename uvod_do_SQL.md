@@ -1,24 +1,23 @@
-# Uvod do SQL 
-Priklady z tohoto uvodu do SQL lze aplikovat na databazi `naturalearth` implementovanou na PostgreSQL/PostGIS serveru sidlicim na domene `osgeo.natur.cuni.cz`. 
+# Úvod do SQL
+Příklady z tohoto úvodu do SQL lze aplikovat na databázi `naturalearth`, implementovanou na PostgreSQL/PostGIS serveru, který sídlí na doméně `osgeo.natur.cuni.cz`. Před spuštěním SQL dotazu vždy zkontrolujte název databáze, název tabulky a název atributu. 
 
-## Prikaz SELECT
-Cteni dat z DB 
+## Příkaz SELECT
+Čtení dat z DB
 
---Nejednodussi forma SELECTu je <br>
-SELECT "co" FROM "odkud"
+-- Nejsnazší forma SELECTu je: <br> SELECT "co" FROM "odkud"
 
-Priklad z DB Naturalearth: <br>
+Příklad z DB Naturalearth: <br>
 
 **SELECT name_long** <br>
 **FROM countries;** <br>
 
 
-Ukol: Pridejte atributy postal a pop2020 do vypisu <br>
-Jmeno sloupce 'name_long' prepiste na 'Zeme' pomoci aliasu `AS`
+Úkol:
+Přidejte atributy postal a pop2020 do výpisu. <br> Název sloupce name_long přepište na Zeme pomocí aliasu AS.
 
 ## COUNT
-Spocitejte kolik je zemi v DB Naturalearth <br>
-SELECT COUNT(*) FROM "odkud" <br>
+Spočítejte, kolik je zemí v DB Naturalearth. <br> 
+SELECT COUNT(*) FROM "odkud"
 
 ## Podminka WHERE
 SELECT "co" FROM "odkud" WHERE "podminka" <br>
@@ -29,98 +28,101 @@ Priklad: <br/>
 **WHERE region_un = 'Europe';** <br>
 
 
-Pro test na nerovnost se pouziva zapis < > nebo take nekdy != <br>
+Pro test na nerovnost se používá zápis <> nebo také někdy != <br>
 
-Ukol: vyberte vsechnz ne-Evropske zeme a vzpiste je. <br>
+Úkol:
 
-Casto potrebujeme testovat jestli nejaka hodnota presahuje ci nepresahuje nejakou jinou. <br>
-SELECT "co" FROM "odkud" WHERE atribut <= 10000; <br/> 
+Vyberte všechny neevropské země a vypište je.
 
-Test na text nemusi byt vzdy presny, muze zamerne obsahovat urcitou volnost. <br>
-Pro volnejsi test textu se pouzije prikaz `LIKE`a v hledanem vzoru se pouzivaji zastupne znaky %, _ a [] <br>
+Často potřebujeme testovat, zda nějaká hodnota přesahuje nebo nepřesahuje jinou. <br> 
+SELECT "co" FROM "odkud" WHERE atribut <= 10000; <br/>
 
-SELECT "co" FROM "odkud" WHERE atribut LIKE 'Čern%'; <br>
-'Čern_' <br>
+Test na text nemusí být vždy přesný, může záměrně obsahovat určitou volnost. <br> 
+Pro volnější test textu se použije příkaz LIKE, a v hledaném vzoru se používají zástupné znaky %, _ a [].
+
+SELECT "co" FROM "odkud" WHERE atribut LIKE 'Čern%'; <br> 
+'Čern_' <br> 
 'Čern[ýá]' <br>
 
 ## Negace NOT
-Vyber vsech krome ..., s operatorem negace. <br>
-SELECT "co" FROM "odkud" WHERE NOT "podminka" <br>
+Vyberte vše kromě ..., s operátorem negace. <br> 
+SELECT "co" FROM "odkud" WHERE NOT "podmínka" <br>
 
-Priklad vsichni krome "..." <br>
+Příklad: Všichni kromě "..." <br>
 
 **SELECT name_long** <br>
 **FROM countries** <br>
 **WHERE region_un NOT LIKE 'Eu%';** <br>
 
-## A soucasne AND
-Pro vyber uplatnujem vice kriterii soucasne <br>
-SELECT "co" FROM "odkud" WHERE "podminka1 " AND "podminak2" <br>
+## A současně AND
+Pro výběr uplatňujeme více kritérií současně. <br> 
+SELECT "co" FROM "odkud" WHERE "podmínka1" AND "podmínka2" <br>
 
-Priklad: <br> 
+Příklad: <br> 
 **SELECT name_long** <br>
 **FROM countries** <br>
 **WHERE region_un = 'Europe' AND** <br>
 **name_long LIKE 'C%';** <br>
 
-## Alespon jedno OR 
-Splneni alespon jednoho z kriterii <br>
-SELECT "co" FROM "odkud" WHERE "podminka1 " or "podminak2" <br>
+## Alespoň jedno OR
+Splnění alespoň jednoho z kritérií. <br> 
+SELECT "co" FROM "odkud" WHERE "podmínka1" OR "podmínka2" <br>
 
 **SELECT name_long** <br>
 **FROM countries** <br>
 **WHERE name_long LIKE 'A%' OR** <br>
 **name_long LIKE 'C%';** <br>
 
-## Operator IN ~ patri do vyctu 
+## Operátor IN ~ patří do výčtu
 SELECT "co" FROM "odkud" WHERE atribut IN (1, 2); <br>
 
 **SELECT name_long** <br>
 **FROM countries** <br>
 **WHERE name_len IN (20, 24);** <br>
 
-## Test rozmezi BETWEEN 
-Casto potrebujem testovat, zda nejaka hodnota patri do zadaneho rozmezi od do <br>
+## Test rozmezí BETWEEN
+Často potřebujeme testovat, zda nějaká hodnota patří do zadaného rozmezí od-do. <br> 
 SELECT "co" FROM "odkud" WHERE atribut BETWEEN 1 AND 2; <br>
 
 **SELECT name_long** <br>
 **FROM countries** <br>
 **WHERE label_y BETWEEN 40 and 60;** <br>
 
-Prepiste test rozmnezi pomoci < > <br>
+Přepište test rozmezí pomocí <>. <br> 
 
 ## Kombinace AND a OR 
 SELECT "co" FROM "odkud" WHERE atribut = hodnota AND <br>
                                atribut2 = 1 OR atribut3 > 13; 
 
-Priklad: <br>
+Příklad: <br>
 **SELECT name_long** <br>
 **FROM countries** <br>
 **WHERE region_un = 'Europe' AND** <br>
 **label_y BETWEEN 40 and 60;** <br>
 
-## Priorita operatoru 
-Operatory maji ruznou prioritu pri vyhodnocovani. Napr. porovnani = je silnejsi nez NOT, ktere je sitlnejsi nez AND, jez je zase silnejsi nez OR. <br>
-Over na webu "operator precedence t-sql". <br>
+## Priorita operátorů
 
-## Razeni ORDER BY 
-Vysledek SQL dotazu chceme usporadat podle nejakeho kriteria, napriklad abecedy. <br>
+Operátory mají různou prioritu při vyhodnocování. Například porovnání = je silnější než NOT, které je silnější než AND, jež je zase silnější než OR. <br> 
+Ověřte na webu "operator precedence t-sql". <br>
 
-Priklad: vypiste vsechny zeme pomoci radiciho kriteria ORDER BY: <br>
+## Řazení ORDER BY
+Výsledek SQL dotazu chceme uspořádat podle nějakého kritéria, například abecedy. <br>
+
+Příklad: Vypište všechny země pomocí řadícího kritéria ORDER BY: <br>
 
 **SELECT name_long** <br>
 **FROM countries** <br>
 **ORDER BY name_long;** <br>
 
-## Dve radici kriteria 
+## Dvě řadící kritéria
 **SELECT name_long, continent** <br>
 **FROM countries** <br>
 **ORDER BY** <br>
   **region_un, -- primarni radici kriterium** <br>
   **name_long; -- sekundarni radici kritereium** <br>
 
-## Vypis od nejmensiho 
-Jako hlavni radixi kriterium vyuzijem HDP hodnotu <br>
+## Výpis od nejmenšího
+Jako hlavní řadící kritérium využijeme HDP hodnotu. <br>
 
 **SELECT name_long, continent, HDP** <br>
 **FROM countries** <br>
@@ -129,7 +131,7 @@ Jako hlavni radixi kriterium vyuzijem HDP hodnotu <br>
   **continent,** <br>
   **name_long;** <br>
 
-## Razeni a vyber v jednom 
+## Řazení a výběr v jednom
 **SELECT name_long, continent, HDP** <br>
 **FROM countries** <br>
 **WHERE region_un = 'Europe'** <br>
@@ -138,16 +140,12 @@ Jako hlavni radixi kriterium vyuzijem HDP hodnotu <br>
   **region_un,** <br>
   **name_long;** <br>
 
-## Zmena vystupu 
-
-## Spojeni sloupcu 
-SELECT prijmeni + N' ' + jmeno AS Cele jmeno FROM "odkud" <br>
-
-## Primy vypocet 
+## Přímý výpočet
 **SELECT 1 + 1 AS "1+1"; <br>** <br>
 
 ## CASE na hodnoty 
-Nekdy chceme vystup upravovat pro kazdou hodnotu zvlast. <br>
+Někdy chceme výstup upravovat pro každou hodnotu zvlášť. <br> 
+Vytvoř příklad nad daty NaturalEarth. 
 
 **SEELCT name_long, ...** <br>
   **CASE att** <br>
@@ -159,7 +157,7 @@ Nekdy chceme vystup upravovat pro kazdou hodnotu zvlast. <br>
 **FROM countries;** <br>
 
 ## CASE na podminky 
-Nekdy chceme vystup upravovat pro kazdou hodnotu zvlast. <br>
+Někdy chceme výstup upravovat pro každou podmínku zvlášť. <br>
 
 **SEELCT name_long** <br>
   **CASE** <br>
@@ -170,13 +168,13 @@ Nekdy chceme vystup upravovat pro kazdou hodnotu zvlast. <br>
 **FROM countries;** <br>
 
 ## Hodnota NULL 
-Vypiste vsechny zaznamy uk terych chybi hodnata atributu ... <br>
+Vypište všechny záznamy, u kterých chybí hodnota atributu ... <br> 
 SELECT atribut FROM db WHERE atribut = NULL; <br>
 
 Nebo 
 SELECT atribut FROM db WHERE atribut <> NULL;  <br>
 
-## Spravy test na NULL 
+## Správný test na NULL
 SELECT atribut FROM db WHERE atribut **IS NULL**;  !!! <br>
 
 Nebo <br>
@@ -184,7 +182,9 @@ Nebo <br>
 SELECT atribut FROM db WHERE atribut IS NOT NULL;  !!! <br>
 
 ## Funkce ISNULL 
-Funkce ISNULL prebira dva parametry. Jejim vysledkem je hodnota prvniho parametru, pokud tento neni NULL. V opacnem pripade je vysledkem funkce hodnota druheho parametru. <br>
+Funkce ISNULL přebírá dva parametry. Jejím výsledkem je hodnota prvního parametru, pokud tento není NULL. 
+V opačném případě je výsledkem funkce hodnota druhého parametru. <br>
+
 **SELECT** <br>
   **ISNULL(att, 'Nahradni hodnota'),** <br>
   **ISNULL(NULL, 'Nahradni hodnota');** <br>
@@ -193,9 +193,10 @@ Funkce ISNULL prebira dva parametry. Jejim vysledkem je hodnota prvniho parametr
 **SELECT DISTINCT region_un** <br/> 
 **FROM countries;** <br/>
 
-## Seskupovani GROUP BY
-Agregacni funkce umoznuji spocitat pocty, soucty a podobne. 
-Nejprve je potreba urcit ktery atribut pouzijem k seskupovani. Pak tento atribut uvedeme za SELECTem a za klicovym slovem GROUP BY. 
+## Seskupování GROUP BY
+Agregační funkce umožňují spočítat počty, součty a podobně. <br> 
+Nejprve je potřeba určit, který atribut použijeme k seskupování. Pak tento atribut uvedeme za SELECTem a za klíčovým slovem GROUP BY.
+
 SELECT atribut FROM tabulka GROUP BY atribut; 
 
 **SELECT region_un** <br/> 
@@ -235,6 +236,3 @@ Priklad:
 **HAVING COUNT(CustomerID) > 5;** <br/> 
 
 Pozdeji: vnorene dotazy, JOIN, tvorba tabulek 
-
-
-
